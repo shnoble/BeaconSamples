@@ -11,12 +11,17 @@ import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-public class BleHelper {
+public class BleManager {
+    @NonNull
+    private final BleScanner mBleScanner;
+
     private int mRequestEnableBluetoothCode;
+
     @Nullable
     private RequestEnableBluetoothResultCallback mRequestEnableBluetoothResultCallback;
 
-    public BleHelper() {
+    public BleManager(@NonNull Context context, @NonNull BleScanCallback callback) {
+        this.mBleScanner = BleScanner.newScanner(context, callback);
     }
 
     public static boolean isSupported(@NonNull Context context) {
@@ -39,6 +44,14 @@ public class BleHelper {
             }
         }
         return null;
+    }
+
+    public void startScan() {
+        mBleScanner.startScan();
+    }
+
+    public void stopScan() {
+        mBleScanner.stopScan();
     }
 
     public interface RequestEnableBluetoothResultCallback {
