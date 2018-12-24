@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.d(TAG, String.format("Type ID: 0x%x", typeId));
 
                         // AD indicator
-                        int advertisingIndicatorDataLength = scanRecord[9] & 0xff;
+                        int advertisingIndicatorDataLength = scanRecord[8] & 0xff;
                         Log.d(TAG, "Advertising indicator data length: " + advertisingIndicatorDataLength);
                         byte[] uuid = Arrays.copyOfRange(scanRecord, 9, 25);
                         Log.d(TAG, "UUID length: " + uuid.length);
