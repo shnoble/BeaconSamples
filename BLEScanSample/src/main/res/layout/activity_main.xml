@@ -25,5 +25,11 @@
             android:onClick="@{() -> bleManager.stopScan()}"
             android:text="Stop" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onConnect"
+            android:text="Connect" />
+
     </LinearLayout>
 </layout>
